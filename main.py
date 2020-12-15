@@ -210,8 +210,8 @@ def main():
         return data
     data = user_input_features()
 
-    outdir = 'C:/Users/baemg/Documents/herokuServer/kangpoolFace/projection'
-    network_pkl = 'C:/Users/baemg/Documents/herokuServer/kangpoolFace/model/network-snapshot-001476.pkl'
+    outdir = 'C:/Users/baemg/Documents/herokuServer/kangpoolTranslator/projection'
+    network_pkl = 'C:/Users/baemg/Documents/herokuServer/kangpoolTranslator/model/network-snapshot-001476.pkl'
     save_video = True
     seed = 302
     # Load networks.

@@ -1,4 +1,5 @@
 # KangpoolFace Translator
+
 ###StyleGAN2 + ADA + FreezeD
 
 ![Target image](./projection/target.png)
@@ -64,6 +65,11 @@ Traing Hyper parameters Arguments
 
 * 1600 Epochs : Good. But some images are dimmed.
 
+## Make Application
+```.bash
+pip install streamlit
+stream run main.py
+```
 ## License
 
 Copyright &copy; 2020, NVIDIA Corporation. All rights reserved.
