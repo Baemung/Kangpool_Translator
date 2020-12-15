@@ -1,0 +1,211 @@
+Loading training set...
+Image shape: [3, 128, 128]
+Label shape: [0]
+
+Constructing networks...
+Setting up TensorFlow plugin "fused_bias_act.cu": Loading... Done.
+Setting up TensorFlow plugin "upfirdn_2d.cu": Loading... Done.
+Resuming from "C:\Users\Administrator\Downloads\stylegan2tf\stylegan2tf\StyleGAN2-ADA\projection\network-snapshot-000614.pkl"
+
+G                             Params    OutputShape         WeightShape     
+---                           ---       ---                 ---             
+latents_in                    -         (?, 512)            -               
+labels_in                     -         (?, 0)              -               
+G_mapping/Normalize           -         (?, 512)            -               
+G_mapping/Dense0              262656    (?, 512)            (512, 512)      
+G_mapping/Dense1              262656    (?, 512)            (512, 512)      
+G_mapping/Broadcast           -         (?, 12, 512)        -               
+dlatent_avg                   -         (512,)              -               
+Truncation/Lerp               -         (?, 12, 512)        -               
+G_synthesis/4x4/Const         8192      (?, 512, 4, 4)      (1, 512, 4, 4)  
+G_synthesis/4x4/Conv          2622465   (?, 512, 4, 4)      (3, 3, 512, 512)
+G_synthesis/4x4/ToRGB         264195    (?, 3, 4, 4)        (1, 1, 512, 3)  
+G_synthesis/8x8/Conv0_up      2622465   (?, 512, 8, 8)      (3, 3, 512, 512)
+G_synthesis/8x8/Conv1         2622465   (?, 512, 8, 8)      (3, 3, 512, 512)
+G_synthesis/8x8/Upsample      -         (?, 3, 8, 8)        -               
+G_synthesis/8x8/ToRGB         264195    (?, 3, 8, 8)        (1, 1, 512, 3)  
+G_synthesis/16x16/Conv0_up    2622465   (?, 512, 16, 16)    (3, 3, 512, 512)
+G_synthesis/16x16/Conv1       2622465   (?, 512, 16, 16)    (3, 3, 512, 512)
+G_synthesis/16x16/Upsample    -         (?, 3, 16, 16)      -               
+G_synthesis/16x16/ToRGB       264195    (?, 3, 16, 16)      (1, 1, 512, 3)  
+G_synthesis/32x32/Conv0_up    2622465   (?, 512, 32, 32)    (3, 3, 512, 512)
+G_synthesis/32x32/Conv1       2622465   (?, 512, 32, 32)    (3, 3, 512, 512)
+G_synthesis/32x32/Upsample    -         (?, 3, 32, 32)      -               
+G_synthesis/32x32/ToRGB       264195    (?, 3, 32, 32)      (1, 1, 512, 3)  
+G_synthesis/64x64/Conv0_up    1442561   (?, 256, 64, 64)    (3, 3, 512, 256)
+G_synthesis/64x64/Conv1       721409    (?, 256, 64, 64)    (3, 3, 256, 256)
+G_synthesis/64x64/Upsample    -         (?, 3, 64, 64)      -               
+G_synthesis/64x64/ToRGB       132099    (?, 3, 64, 64)      (1, 1, 256, 3)  
+G_synthesis/128x128/Conv0_up  426369    (?, 128, 128, 128)  (3, 3, 256, 128)
+G_synthesis/128x128/Conv1     213249    (?, 128, 128, 128)  (3, 3, 128, 128)
+G_synthesis/128x128/Upsample  -         (?, 3, 128, 128)    -               
+G_synthesis/128x128/ToRGB     66051     (?, 3, 128, 128)    (1, 1, 128, 3)  
+---                           ---       ---                 ---             
+Total                         22949277                                      
+
+
+D                    Params    OutputShape         WeightShape     
+---                  ---       ---                 ---             
+images_in            -         (?, 3, 128, 128)    -               
+labels_in            -         (?, 0)              -               
+128x128/FromRGB      512       (?, 128, 128, 128)  (1, 1, 3, 128)  
+128x128/Conv0        147584    (?, 128, 128, 128)  (3, 3, 128, 128)
+128x128/Conv1_down   295168    (?, 256, 64, 64)    (3, 3, 128, 256)
+128x128/Skip         32768     (?, 256, 64, 64)    (1, 1, 128, 256)
+64x64/Conv0          590080    (?, 256, 64, 64)    (3, 3, 256, 256)
+64x64/Conv1_down     1180160   (?, 512, 32, 32)    (3, 3, 256, 512)
+64x64/Skip           131072    (?, 512, 32, 32)    (1, 1, 256, 512)
+32x32/Conv0          2359808   (?, 512, 32, 32)    (3, 3, 512, 512)
+32x32/Conv1_down     2359808   (?, 512, 16, 16)    (3, 3, 512, 512)
+32x32/Skip           262144    (?, 512, 16, 16)    (1, 1, 512, 512)
+16x16/Conv0          2359808   (?, 512, 16, 16)    (3, 3, 512, 512)
+16x16/Conv1_down     2359808   (?, 512, 8, 8)      (3, 3, 512, 512)
+16x16/Skip           262144    (?, 512, 8, 8)      (1, 1, 512, 512)
+8x8/Conv0            2359808   (?, 512, 8, 8)      (3, 3, 512, 512)
+8x8/Conv1_down       2359808   (?, 512, 4, 4)      (3, 3, 512, 512)
+8x8/Skip             262144    (?, 512, 4, 4)      (1, 1, 512, 512)
+4x4/MinibatchStddev  -         (?, 513, 4, 4)      -               
+4x4/Conv             2364416   (?, 512, 4, 4)      (3, 3, 513, 512)
+4x4/Dense0           4194816   (?, 512)            (8192, 512)     
+Output               513       (?, 1)              (512, 1)        
+---                  ---       ---                 ---             
+Total                23882369                                      
+
+Exporting sample images...
+Replicating networks across 2 GPUs...
+Initializing augmentations...
+Setting up optimizers...
+Constructing training graph...
+Finalizing training ops...
+------------------------------------------------------------------------
+WARNING: Using slow fallback implementation for inter-GPU communication.
+Please use TensorFlow 1.14 on Linux for optimal training performance.
+------------------------------------------------------------------------
+Initializing metrics...
+Training for 2500 kimg...
+
+tick 0     kimg 0.3      time 2m 58s       sec/tick 43.9    sec/kimg 171.39  maintenance 134.3  gpumem 8.5   augment 0.003
+Evaluating metrics...
+network-snapshot-000000        time 5m 08s       fid50k_full 39.7824
+tick 1     kimg 4.4      time 10m 29s      sec/tick 95.9    sec/kimg 23.42   maintenance 354.5  gpumem 8.7   augment 0.033
+tick 2     kimg 8.4      time 12m 05s      sec/tick 96.5    sec/kimg 23.55   maintenance 0.0    gpumem 8.7   augment 0.074
+tick 3     kimg 12.5     time 13m 42s      sec/tick 96.6    sec/kimg 23.58   maintenance 0.0    gpumem 8.7   augment 0.110
+tick 4     kimg 16.6     time 15m 18s      sec/tick 96.8    sec/kimg 23.64   maintenance 0.0    gpumem 8.7   augment 0.151
+tick 5     kimg 20.7     time 16m 55s      sec/tick 96.8    sec/kimg 23.64   maintenance 0.0    gpumem 8.7   augment 0.187
+tick 6     kimg 24.8     time 18m 32s      sec/tick 97.1    sec/kimg 23.72   maintenance 0.0    gpumem 8.7   augment 0.223
+tick 7     kimg 28.9     time 20m 10s      sec/tick 97.2    sec/kimg 23.74   maintenance 0.0    gpumem 8.7   augment 0.259
+tick 8     kimg 33.0     time 21m 47s      sec/tick 97.3    sec/kimg 23.76   maintenance 0.0    gpumem 8.7   augment 0.294
+tick 9     kimg 37.1     time 23m 25s      sec/tick 97.5    sec/kimg 23.81   maintenance 0.0    gpumem 8.7   augment 0.330
+tick 10    kimg 41.2     time 25m 02s      sec/tick 97.6    sec/kimg 23.84   maintenance 0.0    gpumem 8.7   augment 0.361
+Evaluating metrics...
+network-snapshot-000041        time 5m 09s       fid50k_full 39.8481
+tick 11    kimg 45.3     time 32m 05s      sec/tick 97.3    sec/kimg 23.76   maintenance 325.2  gpumem 8.7   augment 0.402
+tick 12    kimg 49.4     time 33m 42s      sec/tick 97.5    sec/kimg 23.81   maintenance 0.0    gpumem 8.7   augment 0.433
+tick 13    kimg 53.5     time 35m 20s      sec/tick 97.7    sec/kimg 23.86   maintenance 0.0    gpumem 8.7   augment 0.468
+tick 14    kimg 57.6     time 36m 58s      sec/tick 97.9    sec/kimg 23.90   maintenance 0.0    gpumem 8.7   augment 0.504
+tick 15    kimg 61.7     time 38m 36s      sec/tick 98.0    sec/kimg 23.93   maintenance 0.0    gpumem 8.7   augment 0.535
+tick 16    kimg 65.8     time 40m 14s      sec/tick 98.0    sec/kimg 23.93   maintenance 0.0    gpumem 8.7   augment 0.561
+tick 17    kimg 69.9     time 41m 52s      sec/tick 98.1    sec/kimg 23.94   maintenance 0.0    gpumem 8.7   augment 0.586
+tick 18    kimg 74.0     time 43m 30s      sec/tick 98.1    sec/kimg 23.96   maintenance 0.0    gpumem 8.7   augment 0.617
+tick 19    kimg 78.1     time 45m 09s      sec/tick 98.2    sec/kimg 23.97   maintenance 0.0    gpumem 8.7   augment 0.643
+tick 20    kimg 82.2     time 46m 47s      sec/tick 98.0    sec/kimg 23.93   maintenance 0.0    gpumem 8.7   augment 0.678
+Evaluating metrics...
+network-snapshot-000082        time 5m 10s       fid50k_full 37.8391
+tick 21    kimg 86.3     time 53m 50s      sec/tick 97.9    sec/kimg 23.90   maintenance 326.0  gpumem 8.7   augment 0.694
+tick 22    kimg 90.4     time 55m 29s      sec/tick 98.3    sec/kimg 23.99   maintenance 0.0    gpumem 8.7   augment 0.714
+tick 23    kimg 94.5     time 57m 07s      sec/tick 98.4    sec/kimg 24.03   maintenance 0.0    gpumem 8.7   augment 0.740
+tick 24    kimg 98.6     time 58m 46s      sec/tick 98.4    sec/kimg 24.02   maintenance 0.0    gpumem 8.7   augment 0.750
+tick 25    kimg 102.7    time 1h 00m 24s   sec/tick 98.4    sec/kimg 24.02   maintenance 0.0    gpumem 8.7   augment 0.771
+tick 26    kimg 106.8    time 1h 02m 03s   sec/tick 98.5    sec/kimg 24.04   maintenance 0.0    gpumem 8.7   augment 0.786
+tick 27    kimg 110.8    time 1h 03m 41s   sec/tick 98.5    sec/kimg 24.04   maintenance 0.0    gpumem 8.7   augment 0.812
+tick 28    kimg 114.9    time 1h 05m 20s   sec/tick 98.6    sec/kimg 24.06   maintenance 0.0    gpumem 8.7   augment 0.822
+tick 29    kimg 119.0    time 1h 06m 58s   sec/tick 98.6    sec/kimg 24.06   maintenance 0.0    gpumem 8.7   augment 0.842
+tick 30    kimg 123.1    time 1h 08m 37s   sec/tick 98.7    sec/kimg 24.09   maintenance 0.0    gpumem 8.7   augment 0.863
+Evaluating metrics...
+network-snapshot-000123        time 5m 12s       fid50k_full 36.9571
+tick 31    kimg 127.2    time 1h 15m 42s   sec/tick 98.3    sec/kimg 24.01   maintenance 327.2  gpumem 8.7   augment 0.878
+tick 32    kimg 131.3    time 1h 17m 21s   sec/tick 98.6    sec/kimg 24.07   maintenance 0.0    gpumem 8.7   augment 0.899
+tick 33    kimg 135.4    time 1h 19m 00s   sec/tick 98.6    sec/kimg 24.08   maintenance 0.0    gpumem 8.7   augment 0.914
+tick 34    kimg 139.5    time 1h 20m 38s   sec/tick 98.7    sec/kimg 24.10   maintenance 0.0    gpumem 8.7   augment 0.924
+tick 35    kimg 143.6    time 1h 22m 17s   sec/tick 98.8    sec/kimg 24.11   maintenance 0.0    gpumem 8.7   augment 0.929
+tick 36    kimg 147.7    time 1h 23m 56s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.7   augment 0.929
+tick 37    kimg 151.8    time 1h 25m 35s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.7   augment 0.945
+tick 38    kimg 155.9    time 1h 27m 14s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.7   augment 0.945
+tick 39    kimg 160.0    time 1h 28m 53s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.7   augment 0.950
+tick 40    kimg 164.1    time 1h 30m 31s   sec/tick 98.8    sec/kimg 24.12   maintenance 0.0    gpumem 8.7   augment 0.955
+Evaluating metrics...
+network-snapshot-000164        time 5m 13s       fid50k_full 37.6271
+tick 41    kimg 168.2    time 1h 37m 39s   sec/tick 98.5    sec/kimg 24.05   maintenance 328.7  gpumem 8.7   augment 0.965
+tick 42    kimg 172.3    time 1h 39m 17s   sec/tick 98.7    sec/kimg 24.09   maintenance 0.0    gpumem 8.7   augment 0.965
+tick 43    kimg 176.4    time 1h 40m 56s   sec/tick 98.8    sec/kimg 24.12   maintenance 0.0    gpumem 8.7   augment 0.975
+tick 44    kimg 180.5    time 1h 42m 35s   sec/tick 98.8    sec/kimg 24.12   maintenance 0.0    gpumem 8.7   augment 0.986
+tick 45    kimg 184.6    time 1h 44m 14s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.7   augment 0.996
+tick 46    kimg 188.7    time 1h 45m 52s   sec/tick 98.2    sec/kimg 23.96   maintenance 0.0    gpumem 8.7   augment 1.011
+tick 47    kimg 192.8    time 1h 47m 31s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.7   augment 1.011
+tick 48    kimg 196.9    time 1h 49m 10s   sec/tick 99.6    sec/kimg 24.31   maintenance 0.0    gpumem 8.7   augment 1.032
+tick 49    kimg 201.0    time 1h 50m 50s   sec/tick 99.0    sec/kimg 24.17   maintenance 0.0    gpumem 8.7   augment 1.021
+tick 50    kimg 205.1    time 1h 52m 28s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.032
+Evaluating metrics...
+network-snapshot-000205        time 5m 08s       fid50k_full 38.2644
+tick 51    kimg 209.2    time 1h 59m 30s   sec/tick 98.5    sec/kimg 24.05   maintenance 323.4  gpumem 8.8   augment 1.042
+tick 52    kimg 213.2    time 2h 01m 09s   sec/tick 98.6    sec/kimg 24.07   maintenance 0.0    gpumem 8.8   augment 1.057
+tick 53    kimg 217.3    time 2h 02m 48s   sec/tick 98.7    sec/kimg 24.09   maintenance 0.0    gpumem 8.8   augment 1.073
+tick 54    kimg 221.4    time 2h 04m 26s   sec/tick 98.6    sec/kimg 24.08   maintenance 0.0    gpumem 8.8   augment 1.093
+tick 55    kimg 225.5    time 2h 06m 05s   sec/tick 98.8    sec/kimg 24.12   maintenance 0.0    gpumem 8.8   augment 1.108
+tick 56    kimg 229.6    time 2h 07m 44s   sec/tick 98.8    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.119
+tick 57    kimg 233.7    time 2h 09m 23s   sec/tick 98.8    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.119
+tick 58    kimg 237.8    time 2h 11m 02s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.134
+tick 59    kimg 241.9    time 2h 12m 41s   sec/tick 99.0    sec/kimg 24.16   maintenance 0.0    gpumem 8.8   augment 1.149
+tick 60    kimg 246.0    time 2h 14m 19s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.144
+Evaluating metrics...
+network-snapshot-000246        time 5m 10s       fid50k_full 38.7163
+tick 61    kimg 250.1    time 2h 21m 23s   sec/tick 98.4    sec/kimg 24.03   maintenance 325.0  gpumem 8.8   augment 1.144
+tick 62    kimg 254.2    time 2h 23m 01s   sec/tick 98.5    sec/kimg 24.05   maintenance 0.0    gpumem 8.8   augment 1.160
+tick 63    kimg 258.3    time 2h 24m 40s   sec/tick 98.7    sec/kimg 24.10   maintenance 0.0    gpumem 8.8   augment 1.165
+tick 64    kimg 262.4    time 2h 26m 19s   sec/tick 99.0    sec/kimg 24.16   maintenance 0.0    gpumem 8.8   augment 1.170
+tick 65    kimg 266.5    time 2h 27m 58s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.8   augment 1.190
+tick 66    kimg 270.6    time 2h 29m 37s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.206
+tick 67    kimg 274.7    time 2h 31m 16s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.226
+tick 68    kimg 278.8    time 2h 32m 55s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.236
+tick 69    kimg 282.9    time 2h 34m 34s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.8   augment 1.252
+tick 70    kimg 287.0    time 2h 36m 12s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.262
+Evaluating metrics...
+network-snapshot-000286        time 5m 12s       fid50k_full 38.1990
+tick 71    kimg 291.1    time 2h 43m 18s   sec/tick 98.5    sec/kimg 24.05   maintenance 327.3  gpumem 8.8   augment 1.272
+tick 72    kimg 295.2    time 2h 44m 57s   sec/tick 98.7    sec/kimg 24.09   maintenance 0.0    gpumem 8.8   augment 1.293
+tick 73    kimg 299.3    time 2h 46m 35s   sec/tick 98.3    sec/kimg 24.01   maintenance 0.0    gpumem 8.8   augment 1.313
+tick 74    kimg 303.4    time 2h 48m 14s   sec/tick 98.7    sec/kimg 24.10   maintenance 0.0    gpumem 8.8   augment 1.344
+tick 75    kimg 307.5    time 2h 49m 53s   sec/tick 98.9    sec/kimg 24.15   maintenance 0.0    gpumem 8.8   augment 1.359
+tick 76    kimg 311.6    time 2h 51m 32s   sec/tick 99.1    sec/kimg 24.20   maintenance 0.0    gpumem 8.8   augment 1.375
+tick 77    kimg 315.6    time 2h 53m 11s   sec/tick 98.8    sec/kimg 24.12   maintenance 0.0    gpumem 8.8   augment 1.364
+tick 78    kimg 319.7    time 2h 54m 50s   sec/tick 98.9    sec/kimg 24.15   maintenance 0.0    gpumem 8.8   augment 1.375
+tick 79    kimg 323.8    time 2h 56m 29s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.8   augment 1.400
+tick 80    kimg 327.9    time 2h 58m 07s   sec/tick 98.7    sec/kimg 24.10   maintenance 0.0    gpumem 8.8   augment 1.416
+Evaluating metrics...
+network-snapshot-000327        time 5m 11s       fid50k_full 38.9166
+tick 81    kimg 332.0    time 3h 05m 12s   sec/tick 98.5    sec/kimg 24.06   maintenance 326.3  gpumem 8.8   augment 1.441
+tick 82    kimg 336.1    time 3h 06m 51s   sec/tick 98.7    sec/kimg 24.09   maintenance 0.0    gpumem 8.8   augment 1.457
+tick 83    kimg 340.2    time 3h 08m 30s   sec/tick 98.8    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.477
+tick 84    kimg 344.3    time 3h 10m 08s   sec/tick 98.7    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.492
+tick 85    kimg 348.4    time 3h 11m 47s   sec/tick 98.7    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.518
+tick 86    kimg 352.5    time 3h 13m 26s   sec/tick 98.8    sec/kimg 24.12   maintenance 0.0    gpumem 8.8   augment 1.539
+tick 87    kimg 356.6    time 3h 15m 05s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.8   augment 1.544
+tick 88    kimg 360.7    time 3h 16m 44s   sec/tick 98.9    sec/kimg 24.15   maintenance 0.0    gpumem 8.8   augment 1.564
+tick 89    kimg 364.8    time 3h 18m 23s   sec/tick 98.7    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.585
+tick 90    kimg 368.9    time 3h 20m 01s   sec/tick 98.6    sec/kimg 24.08   maintenance 0.0    gpumem 8.8   augment 1.585
+Evaluating metrics...
+network-snapshot-000368        time 5m 14s       fid50k_full 39.5538
+tick 91    kimg 373.0    time 3h 27m 09s   sec/tick 98.4    sec/kimg 24.03   maintenance 329.4  gpumem 8.8   augment 1.600
+tick 92    kimg 377.1    time 3h 28m 48s   sec/tick 98.6    sec/kimg 24.07   maintenance 0.0    gpumem 8.8   augment 1.615
+tick 93    kimg 381.2    time 3h 30m 26s   sec/tick 98.7    sec/kimg 24.09   maintenance 0.0    gpumem 8.8   augment 1.626
+tick 94    kimg 385.3    time 3h 32m 05s   sec/tick 98.7    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.646
+tick 95    kimg 389.4    time 3h 33m 44s   sec/tick 98.8    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.667
+tick 96    kimg 393.5    time 3h 35m 23s   sec/tick 98.9    sec/kimg 24.14   maintenance 0.0    gpumem 8.8   augment 1.687
+tick 97    kimg 397.6    time 3h 37m 02s   sec/tick 98.8    sec/kimg 24.13   maintenance 0.0    gpumem 8.8   augment 1.708
+tick 98    kimg 401.7    time 3h 38m 40s   sec/tick 98.8    sec/kimg 24.12   maintenance 0.0    gpumem 8.8   augment 1.733
+tick 99    kimg 405.8    time 3h 40m 19s   sec/tick 98.7    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.754
+tick 100   kimg 409.9    time 3h 41m 58s   sec/tick 98.7    sec/kimg 24.11   maintenance 0.0    gpumem 8.8   augment 1.774
+Evaluating metrics...
+network-snapshot-000409        time 5m 14s       fid50k_full 39.2974
+tick 101   kimg 414.0    time 3h 49m 06s   sec/tick 98.7    sec/kimg 24.09   maintenance 329.2  gpumem 8.8   augment 1.795
+tick 102   kimg 418.0    time 3h 50m 45s   sec/tick 98.9    sec/kimg 24.13   maintenance 0.0    gpumem 8.8   augment 1.815

@@ -1,0 +1,11 @@
+network-snapshot-000000        time 5m 08s       fid50k_full 39.7824
+network-snapshot-000041        time 5m 09s       fid50k_full 39.8481
+network-snapshot-000082        time 5m 10s       fid50k_full 37.8391
+network-snapshot-000123        time 5m 12s       fid50k_full 36.9571
+network-snapshot-000164        time 5m 13s       fid50k_full 37.6271
+network-snapshot-000205        time 5m 08s       fid50k_full 38.2644
+network-snapshot-000246        time 5m 10s       fid50k_full 38.7163
+network-snapshot-000286        time 5m 12s       fid50k_full 38.1990
+network-snapshot-000327        time 5m 11s       fid50k_full 38.9166
+network-snapshot-000368        time 5m 14s       fid50k_full 39.5538
+network-snapshot-000409        time 5m 14s       fid50k_full 39.2974
