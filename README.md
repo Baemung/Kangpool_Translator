@@ -31,9 +31,7 @@ python dataset_tool.py create_from_images ~/datasets/kangponFace ~/kangpoolFace_
 python dataset_tool.py display datasets/kangpoolFace
 ```
 
-## FFHQ 256으로부터 전이학습, 
-
-The pre-trained network pickles ([`stylegan2-ada/pretrained/paper-fig*`](https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/)) reflect the training configuration the same way as the output directory names, making it straightforward to reproduce a given training run from the paper. For example:
+## Transfer Learning KangpoolFace from FFHQ 256
 
 ```.bash
 python train.py --outdir=~/output --gpus=2 --data=~/datasets/kangpoolFace \
@@ -51,6 +49,20 @@ Traing Hyper parameters Arguments
 * `--metrics=fid50k` to evaluate FID the same way as in the StyleGAN2 paper (see below).
 * `--metricdata` to evaluate quality metrics against the original FFHQ dataset, not the artificially limited 10k subset used for training.
 
+## FID Score Graph for 1600 Epochs
+![Fid Score image1](./evaluation/fidgraph1.png)
+![Fid Score image2](./evaluation/fidgraph2.png)
+
+## Compare Fake Image
+![0Epoch Fake image1](./evaluation/0Epoch.png)
+![800Epoch Fake image1](./evaluation/800Epoch.png)
+![1600Epoch Fake image1](./evaluation/1600Epoch.png)
+
+* 0 Epoch : Pre-trained (FFHQ256) Layer. It will be a guide-face to map cartoon face  
+
+* 800 Epochs : Not bad. But glasses is represented weird. 
+
+* 1600 Epochs : Good. But some images are dimmed.
 
 ## License
 
