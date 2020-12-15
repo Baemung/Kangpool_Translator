@@ -68,7 +68,7 @@ Traing Hyper parameters Arguments
 ## Make Application
 ```.bash
 pip install streamlit
-stream run main.py
+streamlit run main.py
 ```
 ## License
 
