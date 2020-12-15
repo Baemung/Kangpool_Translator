@@ -1,6 +1,6 @@
 # KangpoolFace Translator
 
-###StyleGAN2 + ADA + FreezeD
+### StyleGAN2 + ADA + FreezeD
 
 ![Target image](./projection/target.png)
 ![Project image](./projection/proj.png)
