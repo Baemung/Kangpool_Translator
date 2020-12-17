@@ -1,6 +1,7 @@
 # KangpoolFace Translator
 
 ### StyleGAN2 + ADA + FreezeD
+What would it be like if you appeared as a character of a Kangpool Cartoon?
 
 ![Target image](./projection/target.png)
 ![Project image](./projection/proj.png)
@@ -50,7 +51,7 @@ Traing Hyper parameters Arguments
 * `--metrics=fid50k` to evaluate FID the same way as in the StyleGAN2 paper (see below).
 * `--metricdata` to evaluate quality metrics against the original FFHQ dataset, not the artificially limited 10k subset used for training.
 
-## FID Score Graph for 1600 Epochs
+## FID Score Graph
 ![Fid Score image1](./evaluation/fidgraph1.png)
 ![Fid Score image2](./evaluation/fidgraph2.png)
 
@@ -59,9 +60,9 @@ Traing Hyper parameters Arguments
 ![800Epoch Fake image1](./evaluation/800Epoch.png)
 ![1600Epoch Fake image1](./evaluation/1600Epoch.png)
 
-* 0 Epoch : Pre-trained (FFHQ256) Layer. It will be a guide-face to map cartoon face  
+* 0 Epoch : Pre-trained (FFHQ256) Layer. It will be a guide-face to map the Cartoon face  
 
-* 800 Epochs : Not bad. But glasses is represented weird. 
+* 800 Epochs : Not bad. But glasses are represented weird. 
 
 * 1600 Epochs : Good. But some images are dimmed.
 
