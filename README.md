@@ -3,8 +3,8 @@
 ### StyleGAN2 + ADA + FreezeD
 What would it be like if you appeared as a character of a Kangpool Cartoon?
 
-<img src="./projection/kangpoolFace_original.jpg", width="200" height="200">
-<img src="./projection/kangpoolFace_projection.jpg" width="200"height="200" >
+<img src="projection/kangpoolFace_original.jpg", width="200" height="200">
+<img src="projection/kangpoolFace_projection.jpg" width="200"height="200" >
 
 ![Transform image](./projection/proj.gif)
 
