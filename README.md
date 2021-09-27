@@ -3,6 +3,23 @@
 **What would it be like if you appeared as a character of a Kangpool Cartoon?**  
 <br/><img src = "./projection/proj.gif" width="75%" height="75%">
 
+### 1. STYLE GAN2 : Using Intermediate Latent Vector (w), Create a fake face with a trained style.
+<br>
+<img src = "https://user-images.githubusercontent.com/51703260/134829559-6f4d2884-6d7a-469c-8197-992617199435.png">
+<br>
+
+### 2. FreezeD : Using FreezeD, which frees up the early layers of the trained AI model network and fine-treats errors using new datasets.
+
+<br>
+<img src = "https://user-images.githubusercontent.com/51703260/134829596-7da89c0f-fdfb-4720-b57c-28eae0a01433.png">
+<br>
+
+### 3. ADA : adjusts data augmentation to ensure stable training of GANs even in limited datasets.
+
+<br>
+<img src = "https://user-images.githubusercontent.com/51703260/134830375-d448a342-022f-4e94-99ad-27609ac3b959.jpg">
+<br>
+
 ## Development Enviroment
 * Windows server 2019
 * Python 3.6, TensorFlow-gpu 1.14 
@@ -60,6 +77,8 @@ Traing Hyper parameters Arguments
 pip install streamlit
 streamlit run main.py
 ```  
+
+![streamlit](https://user-images.githubusercontent.com/51703260/134830524-22c10c0a-e315-46a3-9cab-1016de4880f6.png)
 
 ## License
 Copyright &copy; 2020, NVIDIA Corporation. All rights reserved.
